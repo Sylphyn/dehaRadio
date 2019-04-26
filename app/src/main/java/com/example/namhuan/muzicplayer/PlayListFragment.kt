@@ -1,9 +1,12 @@
 package com.example.namhuan.muzicplayer
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.app.ActionBar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,6 +43,7 @@ class PlayListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        activity?.setTitle("Playist")
         return inflater.inflate(R.layout.fragment_play_list, container, false)
     }
 

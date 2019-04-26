@@ -3,24 +3,14 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:background="@color/colorPrimaryDark"
+             android:background="@drawable/background"
              tools:context=".PlayListFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <android.support.design.widget.TextInputLayout
-            android:id="@+id/etPasswordLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true"
-           >
-
-        <android.support.design.widget.TextInputEditText
-                android:id="@+id/etPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="enable password"
-                android:inputType="textPassword"/>
-    </android.support.design.widget.TextInputLayout>
+   <android.support.v7.widget.Toolbar android:id="@+id/my_toolbar"
+                                      android:layout_width="match_parent"
+                                      android:layout_height="?attr/actionBarSize"
+                                      android:elevation="4dp"></android.support.v7.widget.Toolbar>
 
 </FrameLayout>

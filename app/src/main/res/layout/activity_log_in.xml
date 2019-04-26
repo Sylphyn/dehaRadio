@@ -5,9 +5,11 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/background"
         tools:context=".LogInActivity">
 
     <ImageView
+            android:layout_marginTop="50dp"
             android:id="@+id/imvLogo"
             android:layout_marginLeft="115dp"
             android:adjustViewBounds="true"
@@ -18,9 +20,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"/>
-    <android.support.design.widget.TextInputLayout
-            android:id="@+id/edtEmailLayout"
+    <TextView
+            android:layout_marginLeft="20dp"
+            android:id="@+id/tvWelcome"
+            android:text="Welcome back!"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="@color/colorWhite"
             android:layout_below="@id/imvLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:text="Please login to your account"
+            android:textColor="@color/colorWhite"
+            android:id="@+id/tvPlzLogIn"
+            android:layout_below="@id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20sp"
+            android:id="@+id/edtEmailLayout"
+            android:layout_below="@id/tvPlzLogIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <android.support.design.widget.TextInputEditText
@@ -33,6 +60,9 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20sp"
             android:layout_below="@+id/edtEmailLayout"
             android:id="@+id/edtPasswordLayout"
             android:layout_width="match_parent"
@@ -47,27 +77,34 @@
                 android:inputType="textPassword"/>
     </android.support.design.widget.TextInputLayout>
     <Button
+            android:textColor="@color/colorWhite"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="60dp"
             android:layout_below="@id/edtPasswordLayout"
             android:id="@+id/btnSignIn"
-            android:layout_width="251dp"
+            android:background="@drawable/my_button_bg"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:text="Đăng Nhập"/>
+            android:text="Log In"/>
     <Button
+
+            android:textColor="@color/colorWhite"
+            android:background="@android:color/transparent"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="60dp"
             android:layout_below="@id/btnSignIn"
-            android:text="Đăng ký"
+            android:text="Register now"
             android:id="@+id/btnSignUp"
-            android:layout_width="250dp"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"/>
     <Button
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
             android:background="@android:color/transparent"
-            android:layout_marginTop="80dp"
-            android:text="Quên mật khẩu ?"
-            android:layout_below="@id/btnSignUp"
-            android:layout_width="match_parent"
+            android:layout_toRightOf="@id/btnSignIn"
+            android:text="Forgot?"
+            android:layout_below="@id/edtPasswordLayout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
 
