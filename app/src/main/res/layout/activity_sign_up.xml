@@ -30,20 +30,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-    <android.support.design.widget.TextInputLayout
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20sp"
-            android:layout_below="@+id/edtEmailLayout"
-            android:id="@+id/edtNameLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-    <android.support.design.widget.TextInputEditText
-            android:id="@+id/etName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Name"/>
-    </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
             android:layout_below="@+id/tvContent"
@@ -59,6 +45,22 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:hint="Email"
+        />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+            android:layout_below="@+id/edtEmailLayout"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20sp"
+            android:id="@+id/edtNameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+                android:singleLine="true"
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
         />
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
@@ -106,7 +108,7 @@
             android:background="@android:color/transparent"
             android:id="@+id/btnToSignIn"
             android:layout_marginTop="20dp"
-            android:text="Có tài khoản rồi ? Đăng nhập "
+            android:text="Have account already? Sign in "
             android:layout_below="@id/btnsgupSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

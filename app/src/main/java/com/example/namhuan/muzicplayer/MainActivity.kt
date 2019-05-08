@@ -1,5 +1,6 @@
 package com.example.namhuan.muzicplayer
 
+import android.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -10,6 +11,8 @@ import android.view.WindowManager
 import android.widget.AdapterView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import android.R.attr.fragment
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -55,12 +58,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.action_bar,menu)
+        menuInflater.inflate(R.menu.action_bar, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        val id = item?.getItemId()
+       if( id == R.id.addMusic){
 
-        return super.onOptionsItemSelected(item)
+           replaceFragment(AddMusicFragment())
+       }
+        return  super.onOptionsItemSelected(item)
     }
 }
+

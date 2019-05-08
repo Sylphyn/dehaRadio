@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@drawable/background"
+             tools:context=".AddMusicFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <EditText
+                android:hint="https://www.youtube.com/...."
+                android:padding="10dp"
+                android:background="@color/colorWhite"
+                android:id="@+id/edtLink"
+                android:layout_width="330dp"
+                android:layout_height="50dp"
+                android:textSize="15dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="108dp"
+                android:layout_marginLeft="25dp"/>
+        <EditText
+                android:hint="@string/hint_one"
+                android:padding="10dp"
+                android:layout_below="@+id/edtLink"
+                android:background="@color/colorWhite"
+                android:layout_width="330dp"
+                android:layout_height="200dp"
+                android:layout_marginLeft="25dp"
+                android:id="@+id/edtMessage"
+                android:inputType="textMultiLine|textLongMessage"
+                android:gravity="top"
+                android:layout_marginTop="23dp"/>
+        <Button
+                android:textColor="@color/colorWhite"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="60dp"
+                android:layout_below="@id/edtMessage"
+                android:id="@+id/btnCreate"
+                android:background="@drawable/my_button_bg"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:text="Tạo"/>
+    </RelativeLayout>
+
+</FrameLayout>

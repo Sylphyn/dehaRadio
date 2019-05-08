@@ -6,7 +6,17 @@
              android:background="@drawable/background"
              tools:context=".PlayingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:layout_width="wrap_content"
+              android:id="@+id/tvJson"
+              android:textColor="@color/colorWhite"
+              android:layout_height="wrap_content"/>
+        <Button
+                android:layout_below="@+id/tvJson"
+                android:id="@+id/btntest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </RelativeLayout>
 
 
 </FrameLayout>

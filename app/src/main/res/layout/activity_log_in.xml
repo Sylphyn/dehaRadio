@@ -46,13 +46,14 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20sp"
-            android:id="@+id/edtEmailLayout"
+            android:id="@+id/edtNameLayout"
             android:layout_below="@id/tvPlzLogIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <android.support.design.widget.TextInputEditText
-                android:id="@+id/edtEmail"
-                android:hint="Email"
+                android:text="ducnt1"
+                android:id="@+id/edtName"
+                android:hint="Name"
                 android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -63,13 +64,14 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20sp"
-            android:layout_below="@+id/edtEmailLayout"
+            android:layout_below="@+id/edtNameLayout"
             android:id="@+id/edtPasswordLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true">
 
         <android.support.design.widget.TextInputEditText
+                android:text="123456"
                 android:id="@+id/edtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

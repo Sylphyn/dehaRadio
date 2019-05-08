@@ -7,8 +7,12 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Patterns
 import android.widget.EditText
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_log_in.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
+import okhttp3.*
+import org.json.JSONObject
+import java.io.IOException
 import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
@@ -16,6 +20,7 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
+        var client = OkHttpClient()
         btnToSignIn.setOnClickListener {
             val intent : Intent = Intent(this, LogInActivity::class.java)
             startActivity(intent)
@@ -51,10 +56,41 @@ class SignUpActivity : AppCompatActivity() {
         etEmail.validate({s->s.isValidEmail()}, "Validate Email is required")
         etRePassword.validate({s->s.isMatchPassword()}, "Password not match")
 
+        btnsgupSignUp.setOnClickListener {
+            val intent : Intent = Intent(this, MainActivity::class.java)
+            val formBody: RequestBody = FormBody.Builder()
+                .add("name", etName.text.toString())
+                .add("password", etPassword.text.toString())
+                .add("email", etEmail.text.toString())
+                .build()
+            val request: Request = Request.Builder()
+                .url(" http://3.1.50.154:3000/users/create")
+                .post(formBody)
+                .build()
+            client.newCall(request).enqueue(object : Callback {
+                override fun onResponse(call: Call, response: Response) {
+                    if(response.isSuccessful){
+                        val myResponse: String = response.body()!!.string()
+                        val jobject = JSONObject(myResponse)
+                        var error:Boolean = jobject.getBoolean("error")
+                        if(error == true){
+                            var message :String = jobject.getJSONArray("message").toString()
+                            runOnUiThread { Toast.makeText(this@SignUpActivity,message, Toast.LENGTH_SHORT).show() }
+                        }else{
+                            var message:String = jobject.getString("message")
+                            runOnUiThread { Toast.makeText(this@SignUpActivity,message, Toast.LENGTH_SHORT).show() }
+                            startActivity(intent)
+                        }
 
+                    }
+                }
 
+                override fun onFailure(call: Call, e: IOException) {
+                    e.printStackTrace()
+                }
 
-
+        })
     }
 
+}
 }
