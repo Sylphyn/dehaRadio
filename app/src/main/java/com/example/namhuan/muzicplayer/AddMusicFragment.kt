@@ -8,11 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_add_music.*
 import kotlinx.android.synthetic.main.fragment_playing.*
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.OkHttpClient
+import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
 
@@ -27,6 +30,7 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class AddMusicFragment : Fragment() {
+    private lateinit var database: DatabaseReference
     var client = OkHttpClient()
     val API_KEY: String = "AIzaSyCKPnEIp8dZGkEMSzK_3b61xkgVeCwqHh4"
     override fun onCreateView(
@@ -38,7 +42,10 @@ class AddMusicFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_add_music, container, false)
     }
 
+
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
+        database = FirebaseDatabase.getInstance().reference
         val request = okhttp3.Request.Builder()
             .url("https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet&id=zos6P2dnqzg&key=" + API_KEY)
             .addHeader("Accept", "application/json")
@@ -60,13 +67,32 @@ class AddMusicFragment : Fragment() {
                     if (response.isSuccessful) {
                         val myResponse: String = response.body()!!.string()
                         val jobject = JSONObject(myResponse)
-                        var items: String = jobject.getJSONArray("items").toString()
+                        val items = jobject.get("items") as JSONArray
+                        for (i in 0 until items.length()) {
+                            val obj = items.get(i) as JSONObject
+                            var id = obj.getString("id")
+                            val snippet = obj.getJSONObject("snippet")
+                            var title = snippet.getString("title")
+                            val thumbnail = snippet.getJSONObject("thumbnails")
+                            val default = thumbnail.getJSONObject("default")
+                            var url = default.getString("url")
+                            val vid =VideoInfo(edtMessage.text.toString(),id.toString(),title.toString(),url.toString())
+                            database.child("video").push().setValue(vid)
 
-                    activity?.runOnUiThread(Runnable() {
-                        edtMessage.setText(items)
-                    })
+
+//                            activity?.runOnUiThread(Runnable() {
+//                                edtMessage.setText(url)
+//                            })
 
 
+
+
+
+
+
+
+
+                        }
                     }
                 }
 
