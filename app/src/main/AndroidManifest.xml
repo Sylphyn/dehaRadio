@@ -11,13 +11,14 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity android:name=".LogInActivity" android:theme="@style/Theme.Design.NoActionBar">
+
+        </activity>
+        <activity android:name=".MainActivity" android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-        <activity android:name=".MainActivity" android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         </activity>
         <activity android:name=".SignUpActivity" android:theme="@style/Theme.Design.NoActionBar">
         </activity>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "538782102899",
+    "firebase_url": "https://videoplayer-11367.firebaseio.com",
+    "project_id": "videoplayer-11367",
+    "storage_bucket": "videoplayer-11367.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538782102899:android:56d8d52e500ce2df",
+        "android_client_info": {
+          "package_name": "com.example.namhuan.muzicplayer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538782102899-r39fe1ct35po4pk25ethj8q9ifqhphtb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0G_9lRAbsUak9OsCdiPL0ZHvoFsfHHkU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "538782102899-r39fe1ct35po4pk25ethj8q9ifqhphtb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "538782102899-qq5b14f1ipadi9585cban49bsiap0ife.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "BuiTheHiep.Deha-Radio"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

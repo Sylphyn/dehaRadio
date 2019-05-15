@@ -1,8 +1,14 @@
 package com.example.namhuan.muzicplayer
 
-data class VideoInfo(
-    var message: String? = "",
-    var videoId: String? = "",
-    var videoTitle: String? = "",
-    var videoThumbnail: String? = ""
-)
+ class VideoInfo{
+    var mesage: String? = ""
+    var videoID: String? = ""
+    var videoTitle: String? = ""
+    var videoThumbnails: String? = ""
+
+
+     constructor(mesage:String,videoID:String,videoTitle:String,videoThumbnails:String)
+     constructor()
+
+
+}

@@ -46,17 +46,20 @@ class AddMusicFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         database = FirebaseDatabase.getInstance().reference
-        val request = okhttp3.Request.Builder()
-            .url("https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet&id=zos6P2dnqzg&key=" + API_KEY)
-            .addHeader("Accept", "application/json")
-            .method("GET", null)
-            .build()
 
 
         btnCreate.setOnClickListener {
             var youtubLink: String = edtLink.text.toString()
-            var message:String = edtMessage.text.toString()
             var id:String = youtubLink.substring(32,youtubLink.length)
+            val request = okhttp3.Request.Builder()
+                .url("https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet&id=" + id +"&key=" + API_KEY)
+                .addHeader("Accept", "application/json")
+                .method("GET", null)
+                .build()
+
+
+//           var message:String = edtMessage.text.toString()
+
             Toast.makeText(context,id,Toast.LENGTH_SHORT).show()
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
@@ -78,20 +81,6 @@ class AddMusicFragment : Fragment() {
                             var url = default.getString("url")
                             val vid =VideoInfo(edtMessage.text.toString(),id.toString(),title.toString(),url.toString())
                             database.child("video").push().setValue(vid)
-
-
-//                            activity?.runOnUiThread(Runnable() {
-//                                edtMessage.setText(url)
-//                            })
-
-
-
-
-
-
-
-
-
                         }
                     }
                 }
